@@ -17,6 +17,7 @@ function joinChat() {
 
     document.getElementById("login").style.display = "none";
     document.getElementById("chat").style.display = "block";
+    document.getElementById("current-user").innerText = "当前用户：" + username;
 
     if (ws) {
         ws.close();
@@ -83,3 +84,11 @@ document.addEventListener("DOMContentLoaded", function () {
         joinChat();
     }
 });
+function logout(){
+    if (ws) {
+        ws.close();
+    }
+    localStorage.removeItem("username");
+    location.reload();
+
+}
